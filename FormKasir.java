@@ -1,23 +1,22 @@
-package rekappenjualancelebes;
-
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
+package rekappenjualancelebes;
 import koneksi.Koneksi;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.JOptionPane;
 
+    
 /**
  *
  * @author hp
  */
 public class FormKasir extends javax.swing.JFrame {
-private String idKasir= "";
+
     /**
      * Creates new form FormKasir
      */
@@ -25,13 +24,13 @@ private String idKasir= "";
         initComponents();
 tampilData();
 }
-        private void tampilData() {
+private void tampilData() {
     DefaultTableModel model = new DefaultTableModel();
-
     model.addColumn("ID Kasir");
     model.addColumn("Nama Kasir");
     model.addColumn("Username");
     model.addColumn("Password");
+
 
     try {
         Connection conn = Koneksi.getKoneksi();
@@ -65,43 +64,24 @@ tampilData();
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         txtNamaKasir = new javax.swing.JTextField();
         txtUsername = new javax.swing.JTextField();
         txtPassword = new javax.swing.JTextField();
         btnSimpan = new javax.swing.JButton();
         btnEdit = new javax.swing.JButton();
         btnHapus = new javax.swing.JButton();
-        Reset = new javax.swing.JButton();
+        btnReset = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblKasir = new javax.swing.JTable();
-        jScrollPane2 = new javax.swing.JScrollPane();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("             Data Kasir");
+        txtNamaKasir.setText("Nama Kasie");
 
-        jLabel2.setText("Nama Kasir");
+        txtUsername.setText("Username");
 
-        jLabel3.setText("Username");
-
-        jLabel4.setText("Password");
-
-        txtNamaKasir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNamaKasirActionPerformed(evt);
-            }
-        });
-
-        txtUsername.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtUsernameActionPerformed(evt);
-            }
-        });
-
+        txtPassword.setText("Password");
         txtPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPasswordActionPerformed(evt);
@@ -116,25 +96,10 @@ tampilData();
         });
 
         btnEdit.setText("Edit");
-        btnEdit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEditActionPerformed(evt);
-            }
-        });
 
         btnHapus.setText("Hapus");
-        btnHapus.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnHapusActionPerformed(evt);
-            }
-        });
 
-        Reset.setText("Reset");
-        Reset.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ResetActionPerformed(evt);
-            }
-        });
+        btnReset.setText("Reset");
 
         tblKasir.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -144,15 +109,12 @@ tampilData();
                 {null, null, null, null}
             },
             new String [] {
-                "id kasir", "nama kasir", "username", "Reset"
+                "Data Kasir", "Nama Kasir ", "Usename", "Password"
             }
         ));
-        tblKasir.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tblKasirMouseClicked(evt);
-            }
-        });
         jScrollPane1.setViewportView(tblKasir);
+
+        jLabel1.setText("                              DATA KASIR");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -161,69 +123,57 @@ tampilData();
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(214, 214, 214)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(175, 175, 175)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(68, 68, 68)
+                                .addComponent(btnSimpan)
+                                .addGap(72, 72, 72)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(btnEdit)
+                                        .addGap(77, 77, 77)
+                                        .addComponent(btnHapus))
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(11, 11, 11)
+                        .addComponent(btnReset))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(80, 80, 80)
+                        .addGap(313, 313, 313)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4))
-                        .addGap(117, 117, 117)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtNamaKasir, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addComponent(btnSimpan)
-                        .addGap(44, 44, 44)
-                        .addComponent(btnEdit)
-                        .addGap(52, 52, 52)
-                        .addComponent(btnHapus)
-                        .addGap(62, 62, 62)
-                        .addComponent(Reset))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(60, 60, 60)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(109, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(85, 85, 85))
+                            .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtNamaKasir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(126, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(31, 31, 31)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtNamaKasir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(86, 86, 86)
+                .addGap(14, 14, 14)
+                .addComponent(txtNamaKasir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(47, 47, 47)
+                .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSimpan)
                     .addComponent(btnEdit)
                     .addComponent(btnHapus)
-                    .addComponent(Reset))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(99, 99, 99)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(58, Short.MAX_VALUE))
+                    .addComponent(btnReset))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPasswordActionPerformed
 
     private void btnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimpanActionPerformed
 try {
@@ -232,7 +182,6 @@ try {
     String sql = "INSERT INTO kasir(nama_kasir,username,password) VALUES(?,?,?)";
 
     PreparedStatement pst = conn.prepareStatement(sql);
-
     pst.setString(1, txtNamaKasir.getText());
     pst.setString(2, txtUsername.getText());
     pst.setString(3, txtPassword.getText());
@@ -249,96 +198,9 @@ try {
 
 } catch (Exception e) {
     JOptionPane.showMessageDialog(null, e.getMessage());
-}        // TODO add your handling code here:
+        // TODO add your handling code here:
     }//GEN-LAST:event_btnSimpanActionPerformed
-
-    private void txtNamaKasirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNamaKasirActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNamaKasirActionPerformed
-
-    private void txtUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsernameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtUsernameActionPerformed
-
-    private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPasswordActionPerformed
-
-    private void tblKasirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblKasirMouseClicked
-
-    int baris = tblKasir.getSelectedRow();
-    idKasir = tblKasir.getValueAt(baris,0 ). toString();
-    
-    txtNamaKasir.setText(tblKasir.getValueAt(baris, 1).toString());
-    txtUsername.setText(tblKasir.getValueAt(baris, 2).toString());
-    txtPassword.setText(tblKasir.getValueAt(baris, 3).toString());
-       // TODO add your handling code here:
-    }//GEN-LAST:event_tblKasirMouseClicked
-
-    private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
-    try {
-        Connection conn =
-     Koneksi.getKoneksi();
-        
-        String sql = "UPDATE kasir SET nama_kasir=?, username=?, password=? WHERE id_kasir=?";
-        
-        PreparedStatement pst=conn.prepareStatement(sql);
-        
-        
-       pst.setString(1,txtNamaKasir.getText());
-       pst.setString(2,txtUsername.getText());
-       pst.setString(3,txtPassword.getText());
-       pst.setString(4, idKasir);
-       pst.executeUpdate();
-       
-       JOptionPane.showMessageDialog(null,"Data berhasik di ubah");
-       tampilData();
-       txtNamaKasir.setText("");
-       txtUsername.setText("");
-       txtPassword.setText("");
-       idKasir ="";
-       
-    } catch (Exception e) {
-        JOptionPane.showMessageDialog(null,e.getMessage());
 }
-    
-       
-// TODO add your handling code here:
-    }//GEN-LAST:event_btnEditActionPerformed
-
-    private void btnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHapusActionPerformed
-try{
-    Connection conn=Koneksi.getKoneksi();
- String sql = "DELETE FROM kasir WHERE id_kasir=?";  
-   PreparedStatement pst=conn.prepareStatement(sql);
-   
-   pst.setString(1, idKasir);
-   pst.executeUpdate();
-   JOptionPane.showMessageDialog(null,"Data berhasil di hapus" );
-   tampilData();
-   
-   txtNamaKasir.setText("");
-   txtUsername.setText("");
-   txtPassword.setText("");
-   idKasir ="";
-   
-} catch (Exception e){
-    JOptionPane.showMessageDialog(null, e.getMessage());
-  
-}
-// TODO add your handling code here:
-    }//GEN-LAST:event_btnHapusActionPerformed
-
-    private void ResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResetActionPerformed
-txtNamaKasir.setText("");   
-txtUsername.setText("");
-txtPassword.setText(""); 
-idKasir = "";
-
-tblKasir.clearSelection();
-// TODO add your handling code here:
-    }//GEN-LAST:event_ResetActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -375,16 +237,12 @@ tblKasir.clearSelection();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Reset;
     private javax.swing.JButton btnEdit;
     private javax.swing.JButton btnHapus;
+    private javax.swing.JButton btnReset;
     private javax.swing.JButton btnSimpan;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable tblKasir;
     private javax.swing.JTextField txtNamaKasir;
     private javax.swing.JTextField txtPassword;
