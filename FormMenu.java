@@ -79,7 +79,6 @@ private void tampilData() {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         txtNamaMenu = new javax.swing.JTextField();
-        txtKategori = new javax.swing.JTextField();
         txtHarga = new javax.swing.JTextField();
         txtStok = new javax.swing.JTextField();
         btnSimpan = new javax.swing.JButton();
@@ -88,8 +87,10 @@ private void tampilData() {
         btnReset = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblMenu = new javax.swing.JTable();
+        cmbKatagori = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(204, 51, 0));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setText("FORM DATA MENU");
@@ -105,12 +106,6 @@ private void tampilData() {
         txtNamaMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNamaMenuActionPerformed(evt);
-            }
-        });
-
-        txtKategori.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtKategoriActionPerformed(evt);
             }
         });
 
@@ -162,7 +157,7 @@ private void tampilData() {
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "id menu", "nama menu", "harga", "stok"
             }
         ));
         tblMenu.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -171,6 +166,8 @@ private void tampilData() {
             }
         });
         jScrollPane1.setViewportView(tblMenu);
+
+        cmbKatagori.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "kopi ", "Non Kopi", "Snack", "Dessert", " " }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -205,7 +202,7 @@ private void tampilData() {
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addComponent(jLabel3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtKategori, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(cmbKatagori, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addGap(84, 84, 84)
@@ -227,7 +224,7 @@ private void tampilData() {
                 .addGap(21, 21, 21)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(txtKategori, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmbKatagori, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
@@ -244,7 +241,7 @@ private void tampilData() {
                     .addComponent(btnReset))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(246, 246, 246))
+                .addGap(698, 698, 698))
         );
 
         pack();
@@ -260,7 +257,7 @@ try {
     PreparedStatement pst = conn.prepareStatement(sql);
 
     pst.setString(1, txtNamaMenu.getText());
-    pst.setString(2, txtKategori.getText());
+   pst.setString(2, cmbKatagori.getSelectedItem().toString());
     pst.setString(3, txtHarga.getText());
     pst.setString(4, txtStok.getText());
 
@@ -269,7 +266,7 @@ try {
     JOptionPane.showMessageDialog(null, "Data Berhasil Disimpan");
 
     txtNamaMenu.setText("");
-    txtKategori.setText("");
+    cmbKatagori.setSelectedIndex(0);
     txtHarga.setText("");
     txtStok.setText("");
 
@@ -291,7 +288,7 @@ try {
     PreparedStatement pst = conn.prepareStatement(sql);
 
     pst.setString(1, txtNamaMenu.getText());
-    pst.setString(2, txtKategori.getText());
+    pst.setString(2, cmbKatagori.getSelectedItem().toString());
     pst.setString(3, txtHarga.getText());
     pst.setString(4, txtStok.getText());
 
@@ -320,10 +317,6 @@ try {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNamaMenuActionPerformed
 
-    private void txtKategoriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtKategoriActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtKategoriActionPerformed
-
     private void txtHargaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtHargaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtHargaActionPerformed
@@ -339,8 +332,7 @@ String nama = tblMenu.getValueAt(baris, 1).toString();
 txtNamaMenu.setText(nama);
 
 String kategori = tblMenu.getValueAt(baris, 2).toString();
-txtKategori.setText(kategori);
-
+cmbKatagori.setSelectedItem(kategori);
 String harga = tblMenu.getValueAt(baris, 3).toString();
 txtHarga.setText(harga);
 
@@ -381,7 +373,7 @@ try {
 
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
 txtNamaMenu.setText("");
-txtKategori.setText("");
+cmbKatagori.setSelectedIndex(0);
 txtHarga.setText("");
 txtStok.setText("");
         // TODO add your handling code here:
@@ -427,6 +419,7 @@ txtStok.setText("");
     private javax.swing.JButton btnHapus;
     private javax.swing.JButton btnReset;
     private javax.swing.JButton btnSimpan;
+    private javax.swing.JComboBox<String> cmbKatagori;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -435,7 +428,6 @@ txtStok.setText("");
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblMenu;
     private javax.swing.JTextField txtHarga;
-    private javax.swing.JTextField txtKategori;
     private javax.swing.JTextField txtNamaMenu;
     private javax.swing.JTextField txtStok;
     // End of variables declaration//GEN-END:variables
